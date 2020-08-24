@@ -1,0 +1,59 @@
+<div class="image">
+<button mat-fab color="primary"(click)="goBackClick()">
+    <mat-icon>arrow_back</mat-icon>
+</button>
+<div class="form" [formGroup]="form">
+    <mat-form-field appearance="fill">
+        <mat-label>First name</mat-label>
+        <input matInput type="text" formControlName="firstName" placeholder="First name" required/>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Last name</mat-label>
+        <input matInput type="text" formControlName="lastName" placeholder="Last name" required/>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Birth date </mat-label>
+        <input matInput type="text" formControlName="birthDate" placeholder="Birth date" required/>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>CNP</mat-label>
+        <input matInput type="text" formControlName="cnp" placeholder="CNP" required/>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>city</mat-label>
+        <input matInput type="text" formControlName="city" placeholder="city" required/>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="fill">
+        <mat-label>country</mat-label>
+        <input matInput type="text" formControlName="country" placeholder="country" required/>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Phone number</mat-label>
+        <input matInput type="text" formControlName="phoneNumber" placeholder="Phone number" required/>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+    <mat-select formControlName="sex">
+    <mat-option *ngFor="let type of sex"[value]  ="type">
+        {{type}}
+        </mat-option>
+    </mat-select>
+    
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="saveNewPatient()">Save</button>
+</div>
+</div>

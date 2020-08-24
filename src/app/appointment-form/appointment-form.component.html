@@ -1,0 +1,50 @@
+<div class="image">
+<button mat-fab color="primary" (click)="goBack()">
+
+    <mat-icon> arrow_back</mat-icon>
+
+</button>
+
+<div class="form" [formGroup]="form">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Start Time</mat-label>
+        <input matInput type="text" formControlName="startTime" placeholder="Start Time" required />
+        <mat-icon matSuffix> sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>End time</mat-label>
+        <input matInput type="text" formControlName="endTime" placeholder="end Time" required />
+        <mat-icon matSuffix> sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput type="text" formControlName="description" placeholder="Description" required />
+        <mat-icon matSuffix> sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>Type</mat-label>
+        <input matInput type="text" formControlName="appointmentType" placeholder="Type" required />
+        <mat-icon matSuffix> sentiment_very_satisfied</mat-icon>
+    </mat-form-field> -->
+
+    <mat-form-field appearance="fill">
+        <mat-select formControlName="type">
+        <mat-option *ngFor="let type of type"[value]  ="type">
+            {{type}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <input matInput type="text" formControlName="appointmentStatus" placeholder="Status" required />
+        <mat-icon matSuffix> sentiment_very_satisfied</mat-icon>
+    </mat-form-field> -->
+
+    <button mat-raised-button color="primary" (click)="saveNewAppointment()">Save</button>
+
+</div>
+</div>

@@ -1,0 +1,27 @@
+<div class="banner">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <button mat-icon-button [matMenuTriggerFor]="menu" class="menuButton">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item *ngIf="userService.loggedIn() " (click)="showPatients()">
+                    <mat-icon>people</mat-icon>
+                    <span>Patients</span>
+                </button>
+                <button mat-menu-item *ngIf="!userService.loggedIn()" (click)="goToLogin()">
+                    Log in
+                </button>
+                <button mat-menu-item *ngIf="userService.loggedIn()"  (click)="userService.removeAuthorization()">log out</button>
+            </mat-menu>
+            <strong>user: {{curentUser}}</strong>
+            <button mat-menu-item>
+                <a>About</a>
+            </button>
+            <button mat-menu-item>
+                <a>Contact</a>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+</div>

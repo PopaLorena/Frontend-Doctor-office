@@ -1,0 +1,37 @@
+<div class="login">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form" [formGroup]="formGroup">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput type="text" placeholder="Username" formControlName="username" name="username" required
+                  (blur)="onBlur('username')" />
+              </mat-form-field>
+              <p class="form-error" *ngIf="formSubmmited && formGroup.controls.username.hasError('minlength')">Numarul
+                minim de caractere este 3.</p>
+              <p class="form-error" *ngIf="formGroup.controls.username.hasError('required')">Camp obligatoriu</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" formControlName="password" type="password" name="password"
+                  required />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary">Login</button>
+      <button mat-raised-button (click)="signup()" color="accent">Create account</button>
+
+    </mat-card-actions>
+  </mat-card>
+  </div>

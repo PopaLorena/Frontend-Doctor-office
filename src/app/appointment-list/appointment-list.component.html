@@ -1,0 +1,77 @@
+
+<div class="mat-elevation-z8">
+  <button mat-fab color="primary"(click)="goBackClick()">
+    <mat-icon>arrow_back</mat-icon>
+</button>
+  <table mat-table [dataSource]="dataSource">
+    <!-- Name Column -->
+    <ng-container matColumnDef="startTime">
+      <th mat-header-cell *matHeaderCellDef>Start Time</th>
+      <td mat-cell *matCellDef="let element">{{ element.startTime }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="endTime">
+      <th mat-header-cell *matHeaderCellDef>End Time</th>
+      <td mat-cell *matCellDef="let element">{{ element.endTime }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>description</th>
+      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="appointmentType">
+      <th mat-header-cell *matHeaderCellDef>Type</th>
+      <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+    </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="appointmentStatus">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+  </ng-container>
+
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="patient">
+      <th mat-header-cell *matHeaderCellDef>patient's name</th>
+      <td mat-cell *matCellDef="let element">{{ element.patient.lastName }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-stroked-button
+          color="primary"
+          (click)="editAppointment(element)"
+        >
+          EDIT
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="cancel">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-stroked-button color="warn" (click)="cancelAppointment(element.id)">cancel</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayesColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayesColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>
+<button mat-fab color="primary" (click)="newAppointmentClick()">
+  <mat-icon>add</mat-icon>
+</button>
