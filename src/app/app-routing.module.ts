@@ -7,6 +7,8 @@ import { AppointmentFormComponent } from './appointment-form/appointment-form.co
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import {LoginComponent} from './login/login.component'
 import {SignupComponent} from './signup/signup.component'
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [
    { path: 'login', component: LoginComponent },
    {path: 'homePage', component: HomePageComponent},
    {path: 'signup', component: SignupComponent},
+   {path: 'messages/new', component: ContactFormComponent},
+   {path: 'messages', component: ContactComponent},
   { path: 'appointment/:patientId', component: AppointmentListComponent },
   { path: '**', component: HomePageComponent }
 ];

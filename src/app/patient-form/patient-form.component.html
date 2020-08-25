@@ -15,11 +15,24 @@
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <!-- <mat-form-field appearance="fill">
         <mat-label>Birth date </mat-label>
         <input matInput type="text" formControlName="birthDate" placeholder="Birth date" required/>
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
+    </mat-form-field> -->
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>Birth date</mat-label>
+        <input matInput [matDatepicker]="dp" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+      </mat-form-field> -->
+
+      <mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Birth date</mat-label>
+  <input matInput [matDatepickerFilter]="myFilter" formControlName="birthDate"  placeholder="Birth date" [matDatepicker]="picker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>CNP</mat-label>

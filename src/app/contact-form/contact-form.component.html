@@ -1,0 +1,28 @@
+<div class="image">
+    <button mat-fab color="primary" (click)="goBackClick()">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div class="form" [formGroup]="form">
+        <mat-form-field appearance="fill" class="formClass">
+            <mat-form-field>Name</mat-form-field>
+            <input matInput type="text" formControlName="name" placeholder="Name" required />
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="formClass">
+            <mat-form-field>Email</mat-form-field>
+            <input matInput type="text" formControlName="email" placeholder="Email" required />
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="formtext">
+            <mat-form-field>Text</mat-form-field>
+            <input matInput type="text" formControlName="text" placeholder="Text" required />
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <button mat-fab color="primary" (click)="saveMessage()">
+            Save
+            </button>
+    </div>
+</div>

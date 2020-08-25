@@ -34,10 +34,17 @@ import { LoginComponent } from './login/login.component';
 
 import {CostomInterceptor} from './HttpInterceptor';
 import { UserService } from '../app/services/user.service';
+import { MessageServise } from '../app/services/MessageServise';
 
 import { UserListComponent } from './user-list/user-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { SignupComponent } from './signup/signup.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ContactComponent } from './contact/contact.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+//import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,10 +61,15 @@ import { SignupComponent } from './signup/signup.component';
     UserListComponent,
     UserFormComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ContactComponent,
+    ContactFormComponent
     
   ],
   imports: [
+    MatNativeDateModule,
+   
+    MatDatepickerModule,
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
@@ -76,7 +88,7 @@ import { SignupComponent } from './signup/signup.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [PatientService,CommonService,AppointmentService,UserService,
+  providers: [MessageServise,PatientService,CommonService,AppointmentService,UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CostomInterceptor,

@@ -6,6 +6,9 @@ import { PatientService } from '../services/PatientService';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CommonService } from '../services/commonService';
+// import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+// import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+// import * as _moment from 'moment';
 
 @Component({
   selector: 'app-patient-form',
@@ -19,8 +22,7 @@ export class PatientFormComponent implements OnInit, OnDestroy {
   subscriptionList: Subscription[] = [];
   public patientList: Patient[] = this.patientService.patientList;
   private patientToEdit: Patient = new Patient();
-  @Output() private savePatientFinished: EventEmitter<Patient> = new EventEmitter();
-
+  
 
   constructor(private formBuilder: FormBuilder,
     private patientService: PatientService,
@@ -60,6 +62,14 @@ export class PatientFormComponent implements OnInit, OnDestroy {
       sub.unsubscribe();
     });
   }
+
+  myFilter = (d: Date | null): boolean => {
+    const day = (d || new Date()).getDay();
+    // Prevent Saturday and Sunday from being selected.
+    return day !== 0 && day !== 6;
+  }
+
+  
   private addPatient(newPatient: Patient): void {
     this.patientService.addPatient(newPatient).subscribe(() => {
       this.router.navigate(['patients'])

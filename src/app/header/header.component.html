@@ -9,17 +9,23 @@
                     <mat-icon>people</mat-icon>
                     <span>Patients</span>
                 </button>
+                
+                <button mat-menu-item *ngIf="userService.loggedIn() " (click)="showMessage()">
+                    <mat-icon>drafts</mat-icon>
+                    <span>messages</span>
+                </button>
+
                 <button mat-menu-item *ngIf="!userService.loggedIn()" (click)="goToLogin()">
                     Log in
                 </button>
                 <button mat-menu-item *ngIf="userService.loggedIn()"  (click)="userService.removeAuthorization()">log out</button>
             </mat-menu>
-            <strong>user: {{curentUser}}</strong>
+            <strong *ngIf="userService.loggedIn()">user: {{curentUser}}</strong>
             <button mat-menu-item>
-                <a>About</a>
+                <a (click)="goToHome()">HOME</a>
             </button>
             <button mat-menu-item>
-                <a>Contact</a>
+                <a (click)="goToContact()">Contact</a>
             </button>
         </mat-toolbar-row>
     </mat-toolbar>

@@ -31,7 +31,7 @@ export class PatientListComponent implements OnInit {
   ];
   public patientsList: Patient[];
 
-
+firstname: string;
   dataSource = new MatTableDataSource<Patient>(this.patientsList);
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
    patientList: Patient[] = this.patientService.patientList;
@@ -48,6 +48,21 @@ export class PatientListComponent implements OnInit {
       this.getPatientList();
     }
   }
+
+   applyFilter(filterValue: string){
+
+  this.dataSource.filter=filterValue.trim().toLowerCase();
+  
+}
+  // search(){
+  //   if(this.firstname!=""){
+  //   this.patientList=this.patientList.filter((res)=>{
+  //     return res.firstName.toLocaleLowerCase().match(this.firstname.toLocaleLowerCase());
+  //   }); }
+  //   else{
+  //     this.ngOnInit();
+  //   }
+  // }
 
   newPatientClick(): void {
     this.selectedPatient = new Patient();
